@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur5_with_camera">
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
+
+  <xacro:ur5_robot prefix="" />
+  
+  <!-- Kamera RGBD -->
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <parent link="ee_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+</robot>
